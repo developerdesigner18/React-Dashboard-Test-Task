@@ -49,7 +49,7 @@ const Sidebar = () => {
                   <MenuIcon />
                </IconButton>
             </div>
-            <Paper className='flex items-center gap-8 p-2 cursor-pointer'>
+            <Paper className='flex items-center gap-8 p-2 cursor-pointer border'>
                <div className="text-gray-700">
                   <DashboardIcon />
                </div>
@@ -63,7 +63,7 @@ const Sidebar = () => {
             </ListItem>
             {menuItems.map((item, index) => (
                <ListItem key={index} className="hover:bg-gray-200">
-                  <ListItemIcon className="text-gray-700">{item.icon}</ListItemIcon>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                </ListItem>
             ))}
@@ -73,12 +73,12 @@ const Sidebar = () => {
             </ListItem>
             {financeItems.map((item, index) => (
                <ListItem key={index} className="hover:bg-gray-200">
-                  <ListItemIcon className="text-gray-700">{item.icon}</ListItemIcon>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                </ListItem>
             ))}
          </List>
-      </div>
+      </div >
    );
 };
 

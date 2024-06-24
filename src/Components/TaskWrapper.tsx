@@ -11,8 +11,8 @@ const TaskWrapper = ({ children, heading, headerIcon }: TaskWrapperProps) => {
    return (
       <div className="border bg-white rounded-xl flex flex-col">
          <div className='p-2 px-4 flex justify-between items-center border-b'>
-            <p>{heading}</p>
-            <Paper className='p-1'>
+            <p className='font-semibold'>{heading}</p>
+            <Paper className='p-1 border'>
                {headerIcon}
             </Paper>
          </div>

@@ -39,6 +39,11 @@ const events: MyEvent[] = [
    // Add more events here
 ];
 
+// Custom Toolbar component
+const CustomToolbar = () => {
+   return <div></div>;
+};
+
 const MyCalendar: React.FC = () => (
    <Calendar
       className='rounded-none h-[500px]'
@@ -51,6 +56,9 @@ const MyCalendar: React.FC = () => (
       step={60}
       timeslots={1}
       defaultDate={new Date(2023, 5, 20)}
+      components={{
+         toolbar: CustomToolbar
+      }}
       eventPropGetter={(event) => {
          const backgroundColor = event?.title?.includes('break') ? '#f0ad4e' : '#5bc0de';
          return { style: { backgroundColor } };

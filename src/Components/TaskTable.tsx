@@ -62,13 +62,11 @@ const columns: GridColDef[] = [
 const rows = [
    { id: 1, task: 'Create branded collateral', due: 'Oct 30, 2023', progress: 25 },
    { id: 2, task: 'Develop brand guidelines document', due: 'Nov 04, 2023', progress: 25 },
-   { id: 3, task: 'Refine UX/UI for product pages', due: 'Nov 10, 2023', progress: 100 },
-   { id: 4, task: 'Collaborate on website redesign', due: 'Oct 23, 2023', progress: 100 },
-   { id: 5, task: 'Conduct A/B testing on homepage', due: 'Oct 23, 2023', progress: 100 },
-   { id: 6, task: 'Develop social media graphics', due: 'Oct 23, 2023', progress: 100 },
-   { id: 7, task: 'Finalize logo variations', due: 'Nov 04, 2023', progress: 100 },
-   // { id: 8, task: 'Develop brand guidelines document', due: 'Nov 04, 2023', progress: 25 },
-   // { id: 9, task: 'Refine UX/UI for product pages', due: 'Nov 10, 2023', progress: 100 },
+   { id: 3, task: 'Refine UX/UI for product pages', due: 'Nov 10, 2023', progress: 36 },
+   { id: 4, task: 'Collaborate on website redesign', due: 'Oct 23, 2023', progress: 46 },
+   { id: 5, task: 'Conduct A/B testing on homepage', due: 'Oct 23, 2023', progress: 62 },
+   { id: 6, task: 'Develop social media graphics', due: 'Oct 23, 2023', progress: 80 },
+   { id: 7, task: 'Finalize logo variations', due: 'Nov 04, 2023', progress: 70 },
 ];
 
 const TaskTable = () => {
