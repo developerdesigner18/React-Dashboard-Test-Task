@@ -7,7 +7,7 @@ const Home = () => {
          <aside className="h-full overflow-auto bg-gray-100">
             <Sidebar />
          </aside>
-         <main className="flex-1 p-2 h-full overflow-auto bg-gray-100">
+         <main className="flex-1 p-2 h-full overflow-auto bg-white">
             <Dashboard />
          </main>
       </div>

@@ -2,7 +2,6 @@ import { Avatar, AvatarGroup, Box, LinearProgress } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 const columns: GridColDef[] = [
-   // { field: 'id', headerName: 'ID', width: 70 },
    {
       field: 'task',
       headerName: 'Task',
@@ -68,24 +67,21 @@ const rows = [
    { id: 5, task: 'Conduct A/B testing on homepage', due: 'Oct 23, 2023', progress: 100 },
    { id: 6, task: 'Develop social media graphics', due: 'Oct 23, 2023', progress: 100 },
    { id: 7, task: 'Finalize logo variations', due: 'Nov 04, 2023', progress: 100 },
-   { id: 8, task: 'Develop brand guidelines document', due: 'Nov 04, 2023', progress: 25 },
-   { id: 9, task: 'Refine UX/UI for product pages', due: 'Nov 10, 2023', progress: 100 },
+   // { id: 8, task: 'Develop brand guidelines document', due: 'Nov 04, 2023', progress: 25 },
+   // { id: 9, task: 'Refine UX/UI for product pages', due: 'Nov 10, 2023', progress: 100 },
 ];
 
-export default function DataTable() {
+const TaskTable = () => {
    return (
-      <div style={{ height: 400, width: '100%' }}>
+      <div className='h-[500px] w-full'>
          <DataGrid
             rows={rows}
             columns={columns}
-            initialState={{
-               pagination: {
-                  paginationModel: { page: 0, pageSize: 5 },
-               },
-            }}
-            pageSizeOptions={[5, 10]}
             checkboxSelection
+         // hideFooter={true}
          />
       </div>
    );
-}
+};
+
+export default TaskTable;

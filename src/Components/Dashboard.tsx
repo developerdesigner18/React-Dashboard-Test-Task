@@ -7,7 +7,11 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import AddIcon from '@mui/icons-material/Add';
 import DescriptionCard from './DescriptionCard';
-import DataTable from './UserTable';
+import TaskWrapper from './TaskWrapper';
+import TaskTable from './TaskTable';
+import EmployeeTable from './EmployeeTable';
+import ScheduleCalendar from './ScheduleCalendar';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
 const DashboardHeaderContainer = styled(Box)({
    display: 'flex',
@@ -45,7 +49,7 @@ const Dashboard = () => {
             </Box>
          </DashboardHeaderContainer>
 
-         <div className='flex justify-between items-center py-4'>
+         <div className='flex justify-between items-center py-4 bg-gray-100'>
             <Paper className='w-fit p-2 flex justify-center items-center gap-3'>
                <CalendarTodayIcon />
                Monthly
@@ -63,7 +67,7 @@ const Dashboard = () => {
             </div>
          </div>
 
-         <Box my={4}>
+         <div className='bg-gray-100 pb-4'>
             <Grid container spacing={3}>
                <Grid item xs={12} md={6} lg={3}>
                   <DescriptionCard title="Total Employees" count={234} percentage="+5%" isPositive={true} />
@@ -78,44 +82,51 @@ const Dashboard = () => {
                   <DescriptionCard title="Active Jobs" count={10} percentage="0%" isPositive={true} />
                </Grid>
             </Grid>
-         </Box>
+         </div>
 
-         <Box mt={4}>
-            <Paper className="p-4">
-               <p className='mb-4'>Today's Task</p>
-               <DataTable />
-            </Paper>
-         </Box>
-
-         <Box mt={4}>
-            <Paper className="p-4">
-               <p className='mb-4'>Employees</p>
-               <DataTable />
-            </Paper>
-         </Box>
+         <Grid container spacing={1}>
+            <Grid item xs={12} lg={6}>
+               <TaskWrapper heading={"Today's Task"} headerIcon={<AddIcon />}>
+                  <TaskTable />
+               </TaskWrapper>
+            </Grid>
+            <Grid item xs={12} lg={6}>
+               <TaskWrapper heading={"Schedule"} headerIcon={<AddIcon />}>
+                  <ScheduleCalendar />
+               </TaskWrapper>
+            </Grid>
+         </Grid>
 
          <Box my={4}>
-            <Grid container spacing={3}>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Payrolls" count={234} showMore={false} />
-               </Grid>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Drafts" count={12} showMore={false} />
-               </Grid>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Overdue" count={4} showMore={false} />
-               </Grid>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Failed" count={5} showMore={false} />
-               </Grid>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Scheduled" count={24} showMore={false} />
-               </Grid>
-               <Grid item xs={12} md={6} lg={2}>
-                  <DescriptionCard title="Paid" count={36} showMore={false} />
-               </Grid>
-            </Grid>
+            <TaskWrapper heading={"Employees"} headerIcon={<MoreHorizIcon />}>
+               <EmployeeTable />
+            </TaskWrapper>
          </Box>
+
+         <TaskWrapper heading={"Emplyee Payrolls"} headerIcon={<MoreHorizIcon />}>
+            <div className='bg-gray-100 p-2'>
+               <Grid container spacing={3}>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Payrolls" count={234} showMore={false} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Drafts" count={12} showMore={false} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Overdue" count={4} showMore={false} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Failed" count={5} showMore={false} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Scheduled" count={24} showMore={false} />
+                  </Grid>
+                  <Grid item xs={12} md={6} lg={2}>
+                     <DescriptionCard title="Paid" count={36} showMore={false} />
+                  </Grid>
+               </Grid>
+            </div>
+         </TaskWrapper>
       </div>
    );
 };
