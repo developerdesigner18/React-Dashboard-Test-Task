@@ -19,6 +19,7 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import NoEncryptionGmailerrorredIcon from '@mui/icons-material/NoEncryptionGmailerrorred';
+import PositionedMenu from './Dropdown';
 
 const DashboardHeaderContainer = styled(Box)({
    display: 'flex',
@@ -47,25 +48,27 @@ const Dashboard = () => {
                   }}
                   style={{ marginRight: 16 }}
                />
-               <Paper className='p-2 border'>
+               <Paper className='p-2 border cursor-pointer'>
                   <CalendarTodayIcon />
                </Paper>
 
-               <Paper className='p-2 ml-4 border'>
+               <Paper className='p-2 ml-4 border cursor-pointer'>
                   <NotificationsActiveIcon />
                </Paper>
             </Box>
          </DashboardHeaderContainer>
 
          <div className='flex justify-between items-center py-4 px-2 bg-gray-100'>
-            <Paper className='border w-fit p-2 flex justify-center items-center gap-3'>
-               <CalendarTodayIcon />
-               Monthly
-               <KeyboardArrowDownIcon />
-            </Paper>
+            <PositionedMenu>
+               <Paper className='border w-fit p-2 flex justify-center items-center gap-3'>
+                  <CalendarTodayIcon />
+                  Monthly
+                  <KeyboardArrowDownIcon />
+               </Paper>
+            </PositionedMenu>
 
             <div className='flex justify-center items-center gap-4'>
-               <Paper className='border w-fit p-2 flex justify-center items-center gap-3'>
+               <Paper className='border w-fit p-2 flex justify-center items-center gap-3 cursor-pointer'>
                   <CalendarTodayIcon />
                   Export
                </Paper>
@@ -92,7 +95,7 @@ const Dashboard = () => {
             </Grid>
          </div>
 
-         <div className='p-2'>
+         <div className='p-2 bg-white'>
             <Grid container spacing={1}>
                <Grid item xs={12} lg={6}>
                   <TaskWrapper heading={"Today's Task"} headerIcon={<AddIcon />}>

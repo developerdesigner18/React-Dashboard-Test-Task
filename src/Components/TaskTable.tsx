@@ -1,31 +1,50 @@
 import { Avatar, AvatarGroup, Box, LinearProgress } from '@mui/material';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
+
+const theme = createTheme({
+   components: {
+      MuiCheckbox: {
+         styleOverrides: {
+            root: {
+               '&.Mui-checked': {
+                  color: orange[600],
+               },
+            },
+         },
+      },
+   },
+});
 
 const columns: GridColDef[] = [
    {
       field: 'task',
       headerName: 'Task',
-      width: 200,
+      flex: 1,
+      minWidth: 200,
       sortable: false,
    },
    {
       field: 'due',
       headerName: 'Due',
-      width: 120,
+      flex: 1,
+      minWidth: 120,
       sortable: false,
    },
    {
       field: 'member',
       headerName: 'Member',
       sortable: false,
-      width: 160,
+      flex: 1,
+      minWidth: 120,
       renderCell: () => (
          <Box width="100%" height="100%" display="flex" alignItems="center">
             <AvatarGroup max={4}>
-               <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" />
-               <Avatar alt="Travis Howard" src="https://mui.com/static/images/avatar/2.jpg" />
-               <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/4.jpg" />
-               <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/5.jpg" />
+               <Avatar alt="Remy Sharp" src="https://mui.com/static/images/avatar/1.jpg" sx={{ width: 24, height: 24 }} />
+               <Avatar alt="Travis Howard" src="https://mui.com/static/images/avatar/2.jpg" sx={{ width: 24, height: 24 }} />
+               <Avatar alt="Cindy Baker" src="https://mui.com/static/images/avatar/4.jpg" sx={{ width: 24, height: 24 }} />
+               <Avatar alt="Agnes Walker" src="https://mui.com/static/images/avatar/5.jpg" sx={{ width: 24, height: 24 }} />
             </AvatarGroup>
          </Box>
       )
@@ -34,8 +53,9 @@ const columns: GridColDef[] = [
       field: 'progress',
       headerName: 'Progress',
       type: 'number',
-      width: 120,
-      align: 'left', // Align content to the left
+      minWidth: 120,
+      flex: 1,
+      align: 'left',
       headerAlign: 'left',
       sortable: false,
       renderCell: (params) => (
@@ -67,18 +87,21 @@ const rows = [
    { id: 5, task: 'Conduct A/B testing on homepage', due: 'Oct 23, 2023', progress: 62 },
    { id: 6, task: 'Develop social media graphics', due: 'Oct 23, 2023', progress: 80 },
    { id: 7, task: 'Finalize logo variations', due: 'Nov 04, 2023', progress: 70 },
+   { id: 8, task: 'Finalize social media graphics', due: 'Nov 04, 2023', progress: 70 },
 ];
 
 const TaskTable = () => {
    return (
-      <div className='h-[500px] w-full'>
-         <DataGrid
-            rows={rows}
-            columns={columns}
-            checkboxSelection
-         // hideFooter={true}
-         />
-      </div>
+      <ThemeProvider theme={theme}>
+         <div className='h-[500px] w-full'>
+            <DataGrid
+               rows={rows}
+               columns={columns}
+               checkboxSelection
+               hideFooter={true}
+            />
+         </div>
+      </ThemeProvider>
    );
 };
 

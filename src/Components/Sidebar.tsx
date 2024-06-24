@@ -62,7 +62,7 @@ const Sidebar = () => {
                <ListItemText primary="Team management" />
             </ListItem>
             {menuItems.map((item, index) => (
-               <ListItem key={index} className="hover:bg-gray-200">
+               <ListItem key={index} className="hover:bg-gray-200 cursor-pointer">
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                </ListItem>
@@ -72,7 +72,7 @@ const Sidebar = () => {
                <ListItemText primary="Finances" />
             </ListItem>
             {financeItems.map((item, index) => (
-               <ListItem key={index} className="hover:bg-gray-200">
+               <ListItem key={index} className="hover:bg-gray-200 cursor-pointer">
                   <ListItemIcon>{item.icon}</ListItemIcon>
                   <ListItemText primary={item.text} />
                </ListItem>
